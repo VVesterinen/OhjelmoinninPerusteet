@@ -6,7 +6,28 @@ namespace LipunhintaLaskuri
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            int yes = 0.50;
+
+
+            Console.WriteLine("Pääsylippu hinnan laskuri");
+            Console.Write("Oletko varusmies? ");
+
+            if (yes)
+
+            {
+
+                Console.WriteLine("Alennus 50% lopullisesta hinnasta.");
+
+            }
+
+
+            
+
+
+
+
+
         }
     }
 }
