@@ -7,11 +7,14 @@ namespace LipunhintaLaskuri
         static void Main(string[] args)
         {
 
-            int yes = 0.50;
-
+            int yes;
+            int no;
+            int x = 0;
 
             Console.WriteLine("Pääsylippu hinnan laskuri");
             Console.Write("Oletko varusmies? ");
+
+            Console.ReadLine''
 
             if (yes)
 
@@ -21,6 +24,13 @@ namespace LipunhintaLaskuri
 
             }
 
+            if (no)
+
+            {
+
+                Console.Write("Oletko opiskelija? ");
+
+            }
 
             
 
