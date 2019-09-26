@@ -10,7 +10,7 @@ namespace ReadWriteExample
             Console.Write("Your name; ");
             string userInput = Console.ReadLine();
 
-            Console.WriteLine("--------------------------");
+            Console.WriteLine();
 
             Console.WriteLine("Excuse me " + userInput + ", can you hear me?");
             Console.WriteLine("Excuse me {0}, can you hear me?", userInput);
