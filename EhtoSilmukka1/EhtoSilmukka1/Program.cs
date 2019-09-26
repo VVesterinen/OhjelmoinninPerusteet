@@ -13,7 +13,8 @@ namespace EhtoSilmukka1
 
 
 
-            Console.WriteLine("Nega, Posi vai Nolla?");
+            Console.WriteLine("Negatiivinen, Positiivinen vai Nolla?");
+            Console.Write("Syötä luku: ");
             n = int.Parse(Console.ReadLine());
 
 
