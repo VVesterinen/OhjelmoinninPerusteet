@@ -7,60 +7,41 @@ namespace LipunhintaLaskuri
         static void Main(string[] args)
         {
 
-            int yes;
-            int no;
-            int x = 0;
+            double discount = 0;
+            int originalPrice = 16;
+            string varusmies;
+            string opiskelija;
+            string mtkjäsen;
+            int age;
 
             Console.WriteLine("Pääsylippu hinnan laskuri");
-            Console.Write("Oletko varusmies? ");
+            Console.Write("Oletko varusmies? Yes / No: ");
+            varusmies = Console.ReadLine();
 
-            Console.ReadLine''
-
-            if (yes)
+            if (varusmies.ToUpper() == "Yes");
 
             {
-
-                Console.WriteLine("Alennus 50% lopullisesta hinnasta.");
-
+                discount = 0.5;
+                Console.WriteLine($"Lipun hinta on {originalPrice - (discount * originalPrice)} €");
             }
 
-            if (no)
+            else
 
             {
+                Console.Write("Oletko opiskelija? Yes / No: ");
+                opiskelija = Console.ReadLine();
 
-                Console.Write("Oletko opiskelija? ");
-                 = int.Parse(Console.ReadLine());
+                    if (opiskelija.ToUpper() == "Yes") ;
+                {
+                    discount = 0.45;
+                    
+                }
 
-            }
 
-            if (yes)
 
-            {
-
-                Console.Write("Oletko Mtk:n jäsen? ");
-                Console.ReadLine()
-
-                if (yes)
-                    Console.WriteLine("Alennus 60% lopullisesta hinnasta.");
-
-                if (no)
-                    Console.WriteLine("ALennus 45% lopullisesta hinnasta.");
 
 
             }
-
-            if (no)
-
-
-            {
-
-                Console.Write("Syötä ikäsi jatko toimenpiteitä varten: ");
-                x = int.Parse(Console.ReadLine());
-
-            }
-
-
-
         }
     }
 }
