@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EhtoSilmukka2", "EhtoSilmukka2\EhtoSilmukka2.csproj", "{8B3511C8-9183-492E-B3E7-6325857B3AED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B3511C8-9183-492E-B3E7-6325857B3AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B3511C8-9183-492E-B3E7-6325857B3AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B3511C8-9183-492E-B3E7-6325857B3AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B3511C8-9183-492E-B3E7-6325857B3AED}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

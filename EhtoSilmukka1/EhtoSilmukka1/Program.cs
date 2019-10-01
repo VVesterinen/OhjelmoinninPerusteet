@@ -10,6 +10,7 @@ namespace EhtoSilmukka1
         {
 
             int n = 0;
+           
 
 
 
@@ -18,7 +19,7 @@ namespace EhtoSilmukka1
             n = int.Parse(Console.ReadLine());
 
 
-            if (n < 0)
+            if (n < 0)           
             {
                 Console.WriteLine("Luku on negatiivinen.");
             }
