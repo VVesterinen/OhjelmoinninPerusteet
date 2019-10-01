@@ -9,9 +9,6 @@ namespace EhtoSilmukka3
 
             int n = 0;
 
-
-
-
             Console.WriteLine("Luvun ominaisuudet.");
             Console.Write("Syötä luku: ");
             n = int.Parse(Console.ReadLine());
@@ -45,9 +42,7 @@ namespace EhtoSilmukka3
 
             {
                 Console.WriteLine("Luku on positiivinen ja pariton.");
-            }
-
-           
+            }          
         }
     }
 }
