@@ -35,7 +35,7 @@ namespace EhtoSilmukka3
                 Console.WriteLine("Luku on nolla.");
             }
 
-            else if (n < 0 && n % 2 == 1)
+            else if (n < 0 && n % 2 == -1)
 
             {
                 Console.WriteLine("Luku on negatiivinen ja pariton.");
@@ -46,6 +46,8 @@ namespace EhtoSilmukka3
             {
                 Console.WriteLine("Luku on positiivinen ja pariton.");
             }
+
+           
         }
     }
 }
