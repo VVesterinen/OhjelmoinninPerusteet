@@ -8,79 +8,75 @@ namespace LipunhintaLaskuri
         {
 
             double discount = 0;
-            int x = 16;
+            int basePrice = 16;
             string varusmies;
             string opiskelija;
             string mtkjasen;
-            int y = 0;
+            int age = 0;
 
 
 
-            Console.WriteLine("Pääsylippu hinnan laskuri");
-            Console.Write("Oletko varusmies? Yes / No: ");
+            Console.WriteLine("Ticket counter.");
+            Console.Write("Are you in the Army? Yes / No: ");
             varusmies = Console.ReadLine();
 
             if (varusmies.ToUpper() == "YES")
 
             {
                 discount = 0.5;
-                Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
             }
 
             else
 
             {
-                    Console.Write("Oletko opiskelija? Yes / No: ");
+                    Console.Write("Are you a student? Yes / No: ");
                     opiskelija = Console.ReadLine();
-                    Console.Write("Oletko Mtk:n jäsen? Yes / No: ");
+                    Console.Write("Are you a member of Mtk? Yes / No: ");
                     mtkjasen = Console.ReadLine();
 
                 if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "YES") 
                     {
                         discount = 0.60;
-                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
                     else if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "NO") 
                     {
                         discount = 0.45;
-                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
                 if (opiskelija.ToUpper() == "NO")
                 {
-                    Console.Write("Syötä ikäsi: ");
-                    y=int.Parse(Console.ReadLine());
+                    Console.Write("Your age is: ");
+                    age=int.Parse(Console.ReadLine());
 
-                    if (y <= 7)
+                    if (age <= 7)
                     {
                         discount = 1;
-                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
-                    else if (y > 65 || y <= 15)
+                    else if (age > 65 || age <= 15)
                     {
                         discount = 0.50;
-                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
                     else if (mtkjasen.ToUpper() == "YES")
                     {
                         discount = 0.15;
-                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
                     
                     else
                     {
-                        Console.WriteLine("Lipun hinta on 16€");
+                        Console.WriteLine("Ticket price is 16€");
                     }
-
-
-
                 }
-
-
             }
+            Console.WriteLine("Thanks and byebye!");
         }
     }
 }
