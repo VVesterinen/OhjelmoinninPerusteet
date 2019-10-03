@@ -6,7 +6,6 @@ namespace LipunhintaLaskuri
     {
         static void Main()
         {
-
             double discount = 0;
             int basePrice = 16;
             string varusmies;
@@ -15,20 +14,17 @@ namespace LipunhintaLaskuri
             int age = 0;
 
 
-
             Console.WriteLine("Ticket counter.");
             Console.Write("Are you in the Army? Yes / No: ");
             varusmies = Console.ReadLine();
 
             if (varusmies.ToUpper() == "YES")
-
             {
                 discount = 0.5;
                 Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
             }
 
             else
-
             {
                     Console.Write("Are you a student? Yes / No: ");
                     opiskelija = Console.ReadLine();
@@ -36,10 +32,10 @@ namespace LipunhintaLaskuri
                     mtkjasen = Console.ReadLine();
 
                 if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "YES") 
-                    {
+                {
                         discount = 0.60;
                         Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
-                    }
+                }
 
                     else if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "NO") 
                     {
@@ -47,8 +43,8 @@ namespace LipunhintaLaskuri
                         Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
-                if (opiskelija.ToUpper() == "NO")
-                {
+                    if (opiskelija.ToUpper() == "NO")
+                    {
                     Console.Write("Your age is: ");
                     age=int.Parse(Console.ReadLine());
 
