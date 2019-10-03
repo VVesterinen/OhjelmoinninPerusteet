@@ -72,6 +72,7 @@ namespace LipunhintaLaskuri
                     }
                 }
             }
+            Console.WriteLine("");
             Console.WriteLine("Thanks and byebye!");
         }
     }
