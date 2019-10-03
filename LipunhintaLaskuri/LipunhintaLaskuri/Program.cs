@@ -33,8 +33,8 @@ namespace LipunhintaLaskuri
 
                 if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "YES") 
                 {
-                        discount = 0.60;
-                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
+                    discount = 0.60;
+                    Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                 }
 
                     else if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "NO") 
