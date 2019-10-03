@@ -58,12 +58,24 @@ namespace LipunhintaLaskuri
                         Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
                     }
 
-                    if (y > 65 || y <= 15)
+                    else if (y > 65 || y <= 15)
                     {
                         discount = 0.50;
                         Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
                     }
+
+                    else if (mtkjasen.ToUpper() == "YES")
+                    {
+                        discount = 0.15;
+                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                    }
                     
+                    else
+                    {
+                        Console.WriteLine("Lipun hinta on 16€");
+                    }
+
+
 
                 }
 
