@@ -4,15 +4,15 @@ namespace LipunhintaLaskuri
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
 
             double discount = 0;
-            int originalPrice = 16;
+            int x = 16;
             string varusmies;
             string opiskelija;
-            string mtkjäsen;
-            int age = 0;
+            string mtkjasen;
+            int y = 0;
 
 
 
@@ -20,35 +20,52 @@ namespace LipunhintaLaskuri
             Console.Write("Oletko varusmies? Yes / No: ");
             varusmies = Console.ReadLine();
 
-            if (varusmies.ToUpper() == "Yes") ;
+            if (varusmies.ToUpper() == "YES")
 
             {
                 discount = 0.5;
-                Console.WriteLine($"Lipun hinta on {originalPrice - (discount * originalPrice)} €");
+                Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
             }
 
-              else if (varusmies.ToUpper() == "No") ;
+            else
 
             {
-                Console.Write("Oletko opiskelija? Yes / No: ");
-                opiskelija = Console.ReadLine();
-                Console.Write("Oletko Mtk:n jäsen? Yes / No: ");
-                mtkjäsen = Console.ReadLine();
+                    Console.Write("Oletko opiskelija? Yes / No: ");
+                    opiskelija = Console.ReadLine();
+                    Console.Write("Oletko Mtk:n jäsen? Yes / No: ");
+                    mtkjasen = Console.ReadLine();
 
-                if (opiskelija.ToUpper() == "Yes" && mtkjäsen.ToUpper() == "Yes") ;
+                if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "YES") 
+                    {
+                        discount = 0.60;
+                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                    }
+
+                    else if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "NO") 
+                    {
+                        discount = 0.45;
+                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                    }
+
+                if (opiskelija.ToUpper() == "NO")
                 {
-                    discount = 0.60;
-                    Console.WriteLine($"Lipun hinta on {originalPrice - (discount * originalPrice)} €");
+                    Console.Write("Syötä ikäsi: ");
+                    y=int.Parse(Console.ReadLine());
+
+                    if (y <= 7)
+                    {
+                        discount = 1;
+                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                    }
+
+                    if (y > 65 || y <= 15)
+                    {
+                        discount = 0.50;
+                        Console.WriteLine($"Lipun hinta on {x - (discount * x)} €");
+                    }
+                    
+
                 }
-
-                if (opiskelija.ToUpper() == "Yes" && mtkjäsen.ToUpper() == "No") ;
-                {
-                    discount = 0.45;
-                    Console.WriteLine($"Lipun hinta on {originalPrice - (discount * originalPrice)} €");
-                }
-
-
-
 
 
             }
