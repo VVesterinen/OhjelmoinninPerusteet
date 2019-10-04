@@ -51,7 +51,7 @@ namespace LipunhintaLaskuri
                     if (age <= 7)
                     {
                         discount = 1;
-                        Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
+                        Console.WriteLine("Ticket is free");
                     }
 
                     else if (age > 65 || age <= 15)
