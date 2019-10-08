@@ -73,7 +73,7 @@ namespace LipunhintaLaskuri
                 }
             }
             Console.WriteLine("");
-            Console.WriteLine("Thanks and byebye!");
+            Console.WriteLine("Thanks and bye!");
         }
     }
 }
