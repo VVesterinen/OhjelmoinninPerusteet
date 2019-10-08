@@ -8,17 +8,17 @@ namespace LipunhintaLaskuri
         {
             double discount = 0;
             int basePrice = 16;
-            string varusmies;
-            string opiskelija;
-            string mtkjasen;
+            string armyMan;
+            string student;
+            string memberMTK;
             int age = 0;
 
 
             Console.WriteLine("Ticket counter.");
             Console.Write("Are you in the Army? Yes / No: ");
-            varusmies = Console.ReadLine();
+            armyMan = Console.ReadLine().ToUpper().Trim();
 
-            if (varusmies.ToUpper() == "YES")
+            if (armyMan[0] == 'Y')
             {
                 discount = 0.5;
                 Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
@@ -27,23 +27,23 @@ namespace LipunhintaLaskuri
             else
             {
                     Console.Write("Are you a student? Yes / No: ");
-                    opiskelija = Console.ReadLine();
+                    student = Console.ReadLine().ToUpper().Trim();
                     Console.Write("Are you a member of Mtk? Yes / No: ");
-                    mtkjasen = Console.ReadLine();
+                    memberMTK = Console.ReadLine().ToUpper().Trim();
 
-                if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "YES") 
+                if (student[0] == 'Y' && memberMTK[0] == 'Y') 
                 {
                     discount = 0.60;
                     Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                 }
 
-                    else if (opiskelija.ToUpper() == "YES" && mtkjasen.ToUpper() == "NO") 
+                    else if (student[0] == 'Y' && memberMTK[0] == 'N') 
                     {
                         discount = 0.45;
                         Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
-                    if (opiskelija.ToUpper() == "NO")
+                    if (student[0] == 'N')
                     {
                     Console.Write("Your age is: ");
                     age=int.Parse(Console.ReadLine());
@@ -60,7 +60,7 @@ namespace LipunhintaLaskuri
                         Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
                     }
 
-                    else if (mtkjasen.ToUpper() == "YES")
+                    else if (memberMTK[0] == 'Y')
                     {
                         discount = 0.15;
                         Console.WriteLine($"Ticket price is {basePrice - (discount * basePrice)} €");
