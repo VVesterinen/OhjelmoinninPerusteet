@@ -12,8 +12,7 @@ namespace LipunhintaLaskuri
             string student;
             string memberMTK;
             int age = 0;
-
-
+            
             Console.WriteLine("Ticket counter.");
             Console.Write("Are you in the Army? Yes / No: ");
             armyMan = Console.ReadLine().ToUpper().Trim();
