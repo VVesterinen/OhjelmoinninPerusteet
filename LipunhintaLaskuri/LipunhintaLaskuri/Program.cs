@@ -47,7 +47,7 @@ namespace LipunhintaLaskuri
                     Console.Write("Your age is: ");
                     age=int.Parse(Console.ReadLine());
 
-                    if (age <= 7)
+                    if (age < 7)
                     {
                         discount = 1;
                         Console.WriteLine("Ticket is free");
