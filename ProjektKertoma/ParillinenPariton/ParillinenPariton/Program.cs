@@ -40,7 +40,6 @@ namespace ParillinenPariton
             {
                 Console.WriteLine("Luku on liian pieni");
             }
-
         }
     }
 }
