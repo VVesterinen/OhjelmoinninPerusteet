@@ -27,11 +27,20 @@ namespace ProjektiYhteenlasku
 
             }
 
-            else
+            else if (luku == 0)
             {
-                Console.WriteLine("Virheellinen syöte!");
+                Console.WriteLine("Vastaus on 0");
             }
 
+            else if (luku <= -1)
+            {
+                while (i >= luku)
+                {
+                    vastaus = (vastaus + i);
+                    i--;
+                }
+                Console.WriteLine("Vastaus on: " + vastaus);
+            }
         }
     }
 }
