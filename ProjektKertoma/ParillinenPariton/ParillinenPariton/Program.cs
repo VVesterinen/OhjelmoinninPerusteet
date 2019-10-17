@@ -29,7 +29,7 @@ namespace ParillinenPariton
                         pariton = pariton + i;
                     }
                     i++;
-                }
+            }
 
                 Console.WriteLine("Vastaus: Pariton summa = " + pariton + "," +
                     " Parillisten summa = " + parillinen + ".");
