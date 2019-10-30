@@ -7,11 +7,10 @@ namespace ToistorakenneJatkuu
         static void Main(string[] args)
         {
 
-
             Console.WriteLine("Luku   Neliöjuuri");
 
-            double i = 0;
 
+            double i = 0;
 
             while (i <= 10)
             {
