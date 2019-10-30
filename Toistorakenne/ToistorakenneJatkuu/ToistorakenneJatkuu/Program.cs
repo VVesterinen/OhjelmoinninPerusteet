@@ -7,6 +7,7 @@ namespace ToistorakenneJatkuu
         static void Main(string[] args)
         {
 
+            Console.WriteLine("Tulostaa 1-10 ja niiden neliöjuuret.");
             Console.WriteLine("Luku   Neliöjuuri");
 
 
