@@ -6,7 +6,11 @@ namespace ToistorakenneJatkuu2
     {
         static void Main(string[] args)
         {
-            
+
+
+            Console.WriteLine("Tulostaa kertotaulun 1*1 - 9*9:");
+            Console.WriteLine("");
+
                 int i = 1;
                 int n = 1;
 
