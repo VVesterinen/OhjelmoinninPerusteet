@@ -6,7 +6,20 @@ namespace ToistorakenneJatkuu
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+
+            Console.WriteLine("Luku   Neliöjuuri");
+
+            double i = 0;
+
+
+            while (i <= 10)
+            {
+                double neliojuuri = Math.Sqrt(i);
+                Console.WriteLine("{0}      {1}", i, neliojuuri);
+                i++;
+            }
+            return;
         }
     }
 }
