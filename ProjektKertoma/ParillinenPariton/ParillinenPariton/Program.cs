@@ -11,7 +11,7 @@ namespace ParillinenPariton
             Console.Write("Syötä luku: ");
             int luku = int.Parse(Console.ReadLine());
 
-            int i = 1;
+            int i = 0;
             int pariton = 0;
             int parillinen = 0;
 
