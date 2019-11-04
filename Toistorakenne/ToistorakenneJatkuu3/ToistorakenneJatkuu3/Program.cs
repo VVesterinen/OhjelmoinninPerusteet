@@ -6,7 +6,32 @@ namespace ToistorakenneJatkuu3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Random rnd = new Random();
+            int x = 0;
+            int y = 1;
+
+            while (y < 5)
+
+            {
+                Console.Write("Rivi " + y + ": ");
+
+                while (x < 4)
+                {
+                    Console.Write(rnd.Next(50) + ", ");
+
+                    x++;
+
+                    if (x == 4)
+                    {
+                        Console.Write(rnd.Next(50) + ".");
+                    }
+                }
+
+                x = 0;
+                y++;
+                Console.WriteLine();
+
+            }
         }
     }
 }
