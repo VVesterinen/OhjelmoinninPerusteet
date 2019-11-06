@@ -7,7 +7,6 @@ namespace FunktioJaAliohjelmat
         static void Main(string[] args)
         {
             #region "Number input"
-
             Console.WriteLine("How many stars? ");
             int i = int.Parse(Console.ReadLine());
 
@@ -22,8 +21,8 @@ namespace FunktioJaAliohjelmat
             }
             #endregion
         }
-        #region "Number to Star"
 
+        #region "Number to Star"
         static string Change(int n)
 
         {
