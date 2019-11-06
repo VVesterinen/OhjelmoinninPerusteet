@@ -7,7 +7,6 @@ namespace ToistorakenneJatkuu3
         static void Main(string[] args)
         {
 
-
             #region "Number generator"
             Console.WriteLine("Random Numbergenerator.");
             Console.WriteLine();
