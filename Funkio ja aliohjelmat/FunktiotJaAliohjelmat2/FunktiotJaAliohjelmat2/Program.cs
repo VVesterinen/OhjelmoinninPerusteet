@@ -4,6 +4,7 @@ namespace FunktiotJaAliohjelmat2
 {
     class Program
     {
+        #region "Number input"
         static void Main(string[] args)
         {
             Console.WriteLine("Input two numbers: ");
@@ -18,7 +19,9 @@ namespace FunktiotJaAliohjelmat2
             Console.WriteLine(GetMinNumber(x, y));
 
         }
+        #endregion
 
+        #region "Comparing"
         static string GetMinNumber(int x, int y)
         {
 
@@ -41,6 +44,7 @@ namespace FunktiotJaAliohjelmat2
 
             return text;
 
-        } 
+        }
+        #endregion
     }
 }
