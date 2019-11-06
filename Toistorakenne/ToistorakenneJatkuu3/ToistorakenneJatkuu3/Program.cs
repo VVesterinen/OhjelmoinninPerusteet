@@ -6,6 +6,10 @@ namespace ToistorakenneJatkuu3
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("Random Numbergenerator.");
+            Console.WriteLine();
+
             Random rnd = new Random();
             int x = 0;
             int y = 1;
