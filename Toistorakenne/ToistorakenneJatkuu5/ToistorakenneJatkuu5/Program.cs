@@ -30,6 +30,8 @@ namespace ToistorakenneJatkuu5
                     Console.WriteLine("{0}. 2", n);
                 }
             }
+            Console.WriteLine();
+            Console.WriteLine("Onnea kilpailuun!");
         }
     }
 }
