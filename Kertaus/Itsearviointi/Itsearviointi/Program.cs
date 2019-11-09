@@ -27,7 +27,8 @@ namespace Itsearviointi
             Console.WriteLine();
             #endregion
             #region "Task3"
-            Console.Write("Give numbers, (-1) will end the task: ");
+            Console.WriteLine("Give numbers, (-1) will end the task:");
+            Console.Write("");
             int number = 0;
             int sumUp = 0;
 
