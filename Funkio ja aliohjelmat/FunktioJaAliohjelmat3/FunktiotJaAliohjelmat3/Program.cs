@@ -6,42 +6,36 @@ namespace FunktiotJaAliohjelmat3
     {
         static void Main(string[] args)
         {
-
+            String userInput = "";
             bool isValid = false;
 
             while (isValid == false)
             {
                 Console.WriteLine("Give a number: ");
-                String userInput = Console.ReadLine();
-
-                isValid = numberFromRange(userInput, 1, 50);
+                userInput = Console.ReadLine();
+                isValid = numberFromRange(userInput, 1, 50);   
             }
-
-            if (isValid == true)
-            {
-                Console.WriteLine($"Your input {userInput} passes test.");
-            }
-
-            else
-            {
-                Console.WriteLine($"Your input {userInput} is out of range.");
-            }
-
         }
-
         #region "Solve"
-        static bool numberFromRange(String userValue, int lowerBound, int upperBound)
-
+        static bool numberFromRange(String userInput, int lowerBound, int upperBound)
         {
-
             bool isInRange = false;
             try
             {
-
+                int userValue = int.Parse(userInput);
                 if (userValue >= lowerBound && userValue <= upperBound)
                 {
+                    Console.WriteLine($"Your input {userInput} passes test.");
                     isInRange = true;
                 }
+                else
+                {
+                    Console.WriteLine($"Your input {userInput} is out of range.");
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Your input was not a number.");
             }
             return isInRange;
         }
