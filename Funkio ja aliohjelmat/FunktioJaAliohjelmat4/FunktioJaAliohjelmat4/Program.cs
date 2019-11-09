@@ -41,7 +41,7 @@ namespace FunktioJaAliohjelmat4
                 {
                     Console.WriteLine("Number can't be 0.");
                 }                
-                    lastOutput = $"You gave the following numbers: {output}\n Highest number was {maxNumb} and it was the {highNumb}. number.";            
+                    lastOutput = $"You gave the following numbers: {output}\n Highest number was {highNumb} and it was the {maxNumb}. number.";            
             }
             return lastOutput;
         }
