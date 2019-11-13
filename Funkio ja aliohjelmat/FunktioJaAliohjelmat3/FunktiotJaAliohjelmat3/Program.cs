@@ -11,6 +11,7 @@ namespace FunktiotJaAliohjelmat3
 
             while (isValid == false)
             {
+                Console.Clear();
                 Console.WriteLine("Give a number: ");
                 userInput = Console.ReadLine();
                 isValid = numberFromRange(userInput, 1, 50);   
@@ -31,11 +32,15 @@ namespace FunktiotJaAliohjelmat3
                 else
                 {
                     Console.WriteLine($"Your input {userInput} is out of range.");
+                    Console.WriteLine("Press Enter to continue.");
+                    Console.ReadKey();
                 }
             }
             catch (FormatException e)
             {
-                Console.WriteLine("Your input was not a number.");
+                Console.WriteLine($"Your input was not a number. {e.Message}");
+                Console.WriteLine("Press Enter to continue.");
+                Console.ReadKey();
             }
             return isInRange;
         }
