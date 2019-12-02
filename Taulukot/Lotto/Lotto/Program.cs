@@ -12,12 +12,15 @@ namespace Lotto
             rndLottoNumbs(ref lotto, 1, 2);
             printLottoNumbs(lotto);
         }
+#region "intro"
         static void intro()
         {
             Console.WriteLine("Lotto-line generator.\n\nGives you one line + extra and double number.");
             Console.WriteLine("\nPress 'Spacebar' to continue!");
             while (Console.ReadKey() .Key != ConsoleKey.Spacebar) { }
         }
+#endregion
+#region "making numbers"
         static void rndLottoNumbs(ref int[] arrlotto, int count, int value)
         {
             Random rnd = new Random();
@@ -32,6 +35,8 @@ namespace Lotto
                     i--;
             }
         }
+#endregion
+#region "printing numbers"
         static void printLottoNumbs(int[] arrlotto)
         {
             Random rnd = new Random();
@@ -51,6 +56,7 @@ namespace Lotto
             }
             Console.WriteLine($"\nDouble number is:\n{rnd.Next(arrlotto.Length)}");
             Console.WriteLine("\nGood luck!");
-        }       
+#endregion
+        }
     }
 }
