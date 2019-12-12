@@ -9,8 +9,8 @@ namespace Taulukko3
         {
             #region "first array"
             int[] numb = new int[10];
-            intro();
-            getNumbs(ref numb, 0, 20);
+            firstProgram();
+            getNumbs(ref numb, 20);
             printNumbs(numb);
             #endregion
             #region "second array"
@@ -22,12 +22,12 @@ namespace Taulukko3
             int[] arrT_1 = new int[10];
             int[] arrT_2 = new int[10];
             int[] arrT_3 = new int[10];
-            generateRandomNumbsForThreeArrays(ref arrT_1, ref arrT_2, ref arrT_3);
+            generateRandomNumbsForTwoArrays(ref arrT_1, ref arrT_2, ref arrT_3);
             printAllThreeArrayNumbs(arrT_1, arrT_2, arrT_3);
             #endregion           
         }
         #region "first program"
-        static void getNumbs(ref int[] numb, int lowest, int highest)
+        static void getNumbs(ref int[] numb, int highest)
         {
         #region "making random numbers"
             Random rnd = new Random();
@@ -57,7 +57,7 @@ namespace Taulukko3
         }
         #endregion
         #region "program intro"
-        static void intro()
+        static void firstProgram()
         {
             Console.WriteLine("This program gives 10 random number between 0 and 20.");
             Console.WriteLine("\nPress 'Right Arrow' to continue!\n");
@@ -98,7 +98,7 @@ namespace Taulukko3
         #endregion
         #region "third program"
         #region "making random numbers"
-        static void generateRandomNumbsForThreeArrays(ref int[] arrT_1, ref int[] arrT_2, ref int[] arrT_3)
+        static void generateRandomNumbsForTwoArrays(ref int[] arrT_1, ref int[] arrT_2, ref int[] arrT_3)
         {
             Console.WriteLine("\n\nThis is the third program\n");
             Random rnd = new Random();
