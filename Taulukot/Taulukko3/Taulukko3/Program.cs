@@ -56,7 +56,7 @@ namespace Taulukko3
                 }
         }
         #endregion
-        #region "program intro"
+        #region "start up"
         static void firstProgram()
         {
             Console.WriteLine("This program gives 10 random number between 0 and 20.");
