@@ -8,9 +8,11 @@ namespace HETU
         {
             Console.WriteLine("This program will ask your social-ID and will check it, " +
                 "if its correct.");
-            String userInput = "170499-581F";
+            Console.WriteLine("Give your social-ID: ");
+            String userInput = Console.ReadLine();
             int idNumber = inputSplitter(userInput);
-            isValidID(idNumber);
+            bool isCorrect = isValidID(idNumber, 'F');
+            PrintResult(isCorrect);
         }
         static int inputSplitter(String userInput)
         {
@@ -19,12 +21,21 @@ namespace HETU
                    remove = remove.Remove(6, 1);
             return int.Parse(remove);
         }
-        static bool isValidID(int idNumber)
+        static bool isValidID(int idNumber, Char userInputChkMark)
         {
             String chkMark = "0123456789ABCDEFHJKLMNPRSTUVWXY";
             int modChecker = idNumber % 31;
-            Console.WriteLine(chkMark[modChecker]);
-            return true;
+            if (chkMark[modChecker] == userInputChkMark)
+                return true;
+            else
+                return false;
+        }
+        static void PrintResult(bool isValidID)
+        {
+            if (isValidID)
+                Console.WriteLine("Social-ID is correct.");
+            else
+                Console.WriteLine("Social-ID is incorrect.");
         }
     }
 }
