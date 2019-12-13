@@ -34,7 +34,8 @@ namespace HETU
         }
         static void SSNchecker()
         {
-            String userInput = "17 04 99 - 581F ";
+            Console.WriteLine("\n\nGive your social-ID: ");
+            String userInput = Console.ReadLine();
             userInput = RemoveSpaces(userInput);
             if (isValidLenght(userInput))
             {
