@@ -16,15 +16,21 @@ namespace HETU
                 switch (userChoise)
                 {
                     case 'T':
-
+                        SSNchecker();
                         break;
                     case 'U':
 
                         break;
+                    case 'X':
+
+                        break;
                     default:
                         Console.WriteLine("Press one of the following T, U or X.");
+                        Console.WriteLine("Press 'Enter' to continue.");
+                        while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         break;
-                } while (userChoise != 'X') ;
+                }
+            } while (userChoise != 'X');
 
                 String userInput = "17 04 99 B 581F ";
                 userInput = RemoveSpaces(userInput);
@@ -43,6 +49,9 @@ namespace HETU
                     Console.WriteLine("Check your social-ID again.");
                 }
             }
+        static void SSNchecker()
+        {
+
         }
         static char UserInterface()
         {
@@ -50,7 +59,7 @@ namespace HETU
             Console.WriteLine("[T] Check the validy of your social-ID.");
             Console.WriteLine("[U] Make a new social-ID.");
             Console.WriteLine("[X] Close the program.");
-            Console.Write("Choose what to do.");
+            Console.WriteLine("Choose what to do.");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
         static bool isValidDate(String userInput)
