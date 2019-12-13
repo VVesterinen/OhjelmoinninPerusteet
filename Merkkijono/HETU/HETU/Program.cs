@@ -6,25 +6,88 @@ namespace HETU
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("This program will ask your social-ID and will check it, " +
-                "if its correct.");
-            Console.WriteLine("Give your social-ID: ");
-            String userInput = "17 04 999 - 581F ";
-            userInput = RemoveSpaces(userInput);
-            if (isValidLenght(userInput))
+            // Console.WriteLine("This program will ask your social-ID and will check it, " +
+            //     "if its correct.");
+            char userChoise;
+            do
             {
-                int idNumber = inputSplitter(userInput);
-                char getLastChar = GetUserInputChkMark(userInput);
-                bool isCorrect = isValidID(idNumber, getLastChar);
-                PrintResult(isCorrect);
+                Console.Clear();
+                userChoise = UserInterface();
+                switch (userChoise)
+                {
+                    case 'T':
+
+                        break;
+                    case 'U':
+
+                        break;
+                    default:
+                        Console.WriteLine("Press one of the following T, U or X.");
+                        break;
+                } while (userChoise != 'X') ;
+
+                String userInput = "17 04 99 B 581F ";
+                userInput = RemoveSpaces(userInput);
+                if (isValidLenght(userInput))
+                {
+                    if (isValidDate(userInput))
+                    {
+                        int idNumber = inputSplitter(userInput);
+                        char getLastChar = GetUserInputChkMark(userInput);
+                        bool isCorrect = isValidID(idNumber, getLastChar);
+                        PrintResult(isCorrect);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Check your social-ID again.");
+                }
             }
+        }
+        static char UserInterface()
+        {
+            Console.WriteLine("Social-ID reading.");
+            Console.WriteLine("[T] Check the validy of your social-ID.");
+            Console.WriteLine("[U] Make a new social-ID.");
+            Console.WriteLine("[X] Close the program.");
+            Console.Write("Choose what to do.");
+            return char.ToUpper(Console.ReadKey().KeyChar);
         }
         static bool isValidDate(String userInput)
         {
             //170499-581F
             bool result = false;
+            String day = userInput.Substring(0, 2);
+            String month = userInput.Substring(2, 2);
+            String year = userInput.Substring(4, 2);
+            String century = userInput.Substring(6, 1);
+            #region "century"
+            if (century == "-")
+            {
+                year = "19" + year;
+            }
+            else if (century == "A")
+            {
+                year = "20" + year;
+            }
+            else
+            {
+                Console.WriteLine("Are you a wizard Harry?");
+                return result;  //keskeyttää ohjelman komennolla "return"
+            }
+            #endregion
+            // tarkastetaan päivämäärän oikeellisuus try-catch lohkossa
+            try
+            {
+                DateTime birthday = new DateTime(int.Parse(year), int.Parse(month), int.Parse(day));
+                result = true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
-            return true;
+            return result;
         }
         static bool isValidLenght(String userInput)
         {
