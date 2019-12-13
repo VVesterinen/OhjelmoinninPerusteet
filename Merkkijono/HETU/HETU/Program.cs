@@ -11,7 +11,6 @@ namespace HETU
             char userChoise;
             do
             {
-                Console.Clear();
                 userChoise = UserInterface();
                 switch (userChoise)
                 {
@@ -25,33 +24,32 @@ namespace HETU
 
                         break;
                     default:
-                        Console.WriteLine("Press one of the following T, U or X.");
-                        Console.WriteLine("Press 'Enter' to continue.");
+                        Console.WriteLine("\nPress one of the following T, U or X.");
+                        Console.WriteLine("\nPress 'Enter' to continue.");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         break;
                 }
+                Console.ReadLine();
             } while (userChoise != 'X');
-
-                String userInput = "17 04 99 B 581F ";
-                userInput = RemoveSpaces(userInput);
-                if (isValidLenght(userInput))
-                {
-                    if (isValidDate(userInput))
-                    {
-                        int idNumber = inputSplitter(userInput);
-                        char getLastChar = GetUserInputChkMark(userInput);
-                        bool isCorrect = isValidID(idNumber, getLastChar);
-                        PrintResult(isCorrect);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Check your social-ID again.");
-                }
-            }
+        }
         static void SSNchecker()
         {
-
+            String userInput = "17 04 99 - 581F ";
+            userInput = RemoveSpaces(userInput);
+            if (isValidLenght(userInput))
+            {
+                if (isValidDate(userInput))
+                {
+                    int idNumber = inputSplitter(userInput);
+                    char getLastChar = GetUserInputChkMark(userInput);
+                    bool isCorrect = isValidID(idNumber, getLastChar);
+                    PrintResult(isCorrect);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Check your social-ID again.");
+            }
         }
         static char UserInterface()
         {
@@ -59,7 +57,7 @@ namespace HETU
             Console.WriteLine("[T] Check the validy of your social-ID.");
             Console.WriteLine("[U] Make a new social-ID.");
             Console.WriteLine("[X] Close the program.");
-            Console.WriteLine("Choose what to do.");
+            Console.Write("Choose what to do.");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
         static bool isValidDate(String userInput)
