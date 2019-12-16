@@ -21,7 +21,7 @@ namespace HETU
                         SSNcreator(); //kutsutaa hetun luonti funktiota
                         break;
                     case 'X':
-
+                        
                         break;
                     default:
                         Console.WriteLine("\nPress one of the following T, U or X.");
@@ -33,6 +33,7 @@ namespace HETU
                 Console.ReadLine();
             } while (userChoise != 'X');
         }
+        #region "SSNcreator"
         static void SSNcreator()
         {
             Console.WriteLine("\n\nGive your new social-ID [DDMMYY-XXX]: ");
@@ -42,10 +43,15 @@ namespace HETU
             {
                 if (isValidDate(userInput))
                 {
-
+                    int idNumber = inputSplitter(userInput); //idNumber on luku 170499581
+                    char getValidationMark = GetValidationMark(idNumber);
+                    PrintCreatedSSNumber(userInput + getValidationMark);
+                    PrintCreatedSSNumber($"{userInput} + {getValidationMark}");
                 }
             }
         }
+        #endregion
+        #region "SSNchecker"
         static void SSNchecker()
         {
             Console.WriteLine("\n\nGive your social-ID [DDMMYY-XXXX]: ");
@@ -66,6 +72,8 @@ namespace HETU
                 Console.WriteLine("Check your social-ID again.");
             }
         }
+        #endregion
+        #region "UserInterface"
         static char UserInterface()
         {
             Console.WriteLine("Social-ID reading.");
@@ -75,6 +83,8 @@ namespace HETU
             Console.Write("Choose what to do. ");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
+        #endregion
+        #region "isValidDate"
         static bool isValidDate(String userInput)
         {
             //170499-581F
@@ -108,7 +118,15 @@ namespace HETU
             }
 
             return result;
+            /// <summary>
+            /// Check is userInput correct.
+            /// Default Length is 11.
+            /// </summary>
+            /// <param name="userInput"></param>
+            /// <returns></returns>
         }
+        #endregion
+        #region "isValidLength"
         static bool isValidLenght(String userInput)
         {
             return userInput.Length == 11;
@@ -118,6 +136,13 @@ namespace HETU
             //else
             //    return false;
         }
+        /// <summary>
+        /// Check is userInput correct length.
+        /// Variable length is correct Length.
+        /// </summary>
+        /// <param name="userInput"></param>
+        /// <param name="lenght"></param>
+        /// <returns></returns>
         static bool isValidLenght(String userInput, int lenght)
         {
             return userInput.Length == lenght;
@@ -129,13 +154,19 @@ namespace HETU
             result = result.Replace(".", "");
             return result;
         }
+        #endregion
+        #region "GetUserInputChkMark"
         static Char GetUserInputChkMark(String userInput)
         {
             return userInput[userInput.Length - 1];
         }
+        #endregion
+        #region "inputSplitter"
         static int inputSplitter(String userInput)
         {
-            String remove = "";
+            String remove = userInput;
+            // testataan splitter -muuttujan pituus
+            // jos pituus on yli 10 niin poistetaan viimeinen index
             if (userInput.Length > 10)
             {
                 remove = userInput.Remove(10, 1);
@@ -143,6 +174,8 @@ namespace HETU
             remove = remove.Remove(6, 1);
             return int.Parse(remove);
         }
+        #endregion
+        #region "isValidID"
         static bool isValidID(int idNumber, Char userInputChkMark)
         {
             String chkMark = "0123456789ABCDEFHJKLMNPRSTUVWXY";
@@ -152,6 +185,16 @@ namespace HETU
             else
                 return false;
         }
+        #endregion
+        #region "GetValidationMark
+        static char GetValidationMark(int idNumber)
+        {
+            String chkMark = "0123456789ABCDEFHJKLMNPRSTUVWXY";
+            int modChecker = idNumber % 31;
+            return chkMark[modChecker];
+        }
+        #endregion
+        #region "PrintResult"
         static void PrintResult(bool isValidID)
         {
             if (isValidID)
@@ -159,5 +202,12 @@ namespace HETU
             else
                 Console.WriteLine("Social-ID is incorrect.");
         }
+        #endregion
+        #region "PrintCreatedSSNumber"
+        static void PrintCreatedSSNumber(String newSSNumber)
+        {
+            Console.WriteLine($"Created social-ID is: {newSSNumber}");
+        }
+        #endregion
     }
 }
