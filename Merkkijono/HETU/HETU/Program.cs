@@ -11,14 +11,14 @@ namespace HETU
             char userChoise;
             do
             {
-                userChoise = UserInterface();
+                userChoise = UserInterface(); //kutustaa käyttöliittymän funktiota
                 switch (userChoise)
                 {
                     case 'T':
-                        SSNchecker();
+                        SSNchecker(); //kutsutaan hetun tarkastus funktiota
                         break;
                     case 'U':
-
+                        SSNcreator(); //kutsutaa hetun luonti funktiota
                         break;
                     case 'X':
 
@@ -27,14 +27,28 @@ namespace HETU
                         Console.WriteLine("\nPress one of the following T, U or X.");
                         Console.WriteLine("\nPress 'Enter' to continue.");
                         while (Console.ReadKey().Key != ConsoleKey.Enter) { }
+                        Console.Clear();
                         break;
                 }
                 Console.ReadLine();
             } while (userChoise != 'X');
         }
+        static void SSNcreator()
+        {
+            Console.WriteLine("\n\nGive your new social-ID [DDMMYY-XXX]: ");
+            String userInput = Console.ReadLine();
+            userInput = RemoveSpaces(userInput);
+            if (isValidLenght(userInput, 10))
+            {
+                if (isValidDate(userInput))
+                {
+
+                }
+            }
+        }
         static void SSNchecker()
         {
-            Console.WriteLine("\n\nGive your social-ID: ");
+            Console.WriteLine("\n\nGive your social-ID [DDMMYY-XXXX]: ");
             String userInput = Console.ReadLine();
             userInput = RemoveSpaces(userInput);
             if (isValidLenght(userInput))
@@ -58,7 +72,7 @@ namespace HETU
             Console.WriteLine("[T] Check the validy of your social-ID.");
             Console.WriteLine("[U] Make a new social-ID.");
             Console.WriteLine("[X] Close the program.");
-            Console.Write("Choose what to do.");
+            Console.Write("Choose what to do. ");
             return char.ToUpper(Console.ReadKey().KeyChar);
         }
         static bool isValidDate(String userInput)
@@ -69,7 +83,6 @@ namespace HETU
             String month = userInput.Substring(2, 2);
             String year = userInput.Substring(4, 2);
             String century = userInput.Substring(6, 1);
-            #region "century"
             if (century == "-")
             {
                 year = "19" + year;
@@ -83,7 +96,6 @@ namespace HETU
                 Console.WriteLine("Are you a wizard Harry?");
                 return result;  //keskeyttää ohjelman komennolla "return"
             }
-            #endregion
             // tarkastetaan päivämäärän oikeellisuus try-catch lohkossa
             try
             {
@@ -106,9 +118,15 @@ namespace HETU
             //else
             //    return false;
         }
-        static String RemoveSpaces(String userInput)
+        static bool isValidLenght(String userInput, int lenght)
+        {
+            return userInput.Length == lenght;
+            
+        }
+            static String RemoveSpaces(String userInput)
         {
             String result = userInput.Replace(" ", "");
+            result = result.Replace(".", "");
             return result;
         }
         static Char GetUserInputChkMark(String userInput)
@@ -117,8 +135,12 @@ namespace HETU
         }
         static int inputSplitter(String userInput)
         {
-            String remove = userInput.Remove(10, 1);
-                   remove = remove.Remove(6, 1);
+            String remove = "";
+            if (userInput.Length > 10)
+            {
+                remove = userInput.Remove(10, 1);
+            }
+            remove = remove.Remove(6, 1);
             return int.Parse(remove);
         }
         static bool isValidID(int idNumber, Char userInputChkMark)
