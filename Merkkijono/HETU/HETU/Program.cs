@@ -152,6 +152,7 @@ namespace HETU
         {
             String result = userInput.Replace(" ", "");
             result = result.Replace(".", "");
+            result = result.Replace(",", "");
             return result;
         }
         #endregion
