@@ -39,7 +39,7 @@ namespace Merkkijonon_käsittely
             int i3 = strPalindrome.Length - 1;
             bool check = true;
 
-            for (int i4 = 0; i3 < strPalindrome.Length - 1; i3++)
+            for (int i4 = 0;  i4 < strPalindrome.Length - 1; i4++)
             {
                 if (strPalindrome[i2] == strPalindrome[i3])
                 {
