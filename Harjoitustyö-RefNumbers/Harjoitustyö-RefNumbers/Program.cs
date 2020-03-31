@@ -8,10 +8,8 @@ namespace Harjoitustyö
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            string input = string.Empty;
+            String input = String.Empty;
 
-
-            //Here is userinterface to simplify use of program
             char userChoise;
             do
             {
@@ -23,7 +21,7 @@ namespace Harjoitustyö
                         try
                         {
                             input = InputValue(input, 4, 20);
-                            if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4, 20) == true && firstNumbZero(input) == true)
+                            if (CheckReferenceNumb(input) == true && IsNumb(input) == true && ValidLength(input, 4, 20) == true && firstNumbZero(input) == true)
                             {
 
                                 Console.WriteLine($"Your input {AddSpaces(input)} is valid reference number.");
@@ -32,20 +30,20 @@ namespace Harjoitustyö
                             {
                                 Console.WriteLine("Invalid ref number");
                             }
-                            Console.WriteLine("Press any key to continue!");
-                            Console.ReadKey();
+                            Console.WriteLine("\nPress 'Enter' to continue.");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         catch
                         {
-                            Console.WriteLine($"wrong input, click anything to continue!");
-                            Console.ReadLine();
+                            Console.WriteLine("Wrong input, press 'Enter' to continue!");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         break;
                     case '2':
                         try
                         {
                             input = InputValue(input, 3, 19);
-                            if (isNumb(input) == true && validLength(input, 3, 19) == true && firstNumbZero(input) == true)
+                            if (IsNumb(input) == true && ValidLength(input, 3, 19) == true && firstNumbZero(input) == true)
                             {
                                 CreateManyRefNumb(input, 1);
                             }
@@ -53,13 +51,13 @@ namespace Harjoitustyö
                             {
                                 Console.WriteLine("Invalid input");
                             }
-                            Console.WriteLine("Press any key to continue!");
-                            Console.ReadKey();
+                            Console.WriteLine("\nPress 'Enter' to continue.");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         catch
                         {
-                            Console.WriteLine($"wrong input, click anything to continue!");
-                            Console.ReadLine();
+                            Console.WriteLine("Wrong input, press 'Enter' to continue!");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         break;
                     case '3':
@@ -68,60 +66,69 @@ namespace Harjoitustyö
                             Console.WriteLine("How many: ");
                             int count = int.Parse(Console.ReadLine());
                             Console.WriteLine("Base numb?");
-                            string baseNumb = Console.ReadLine();
-                            if (isNumb(baseNumb) == true && validLength(baseNumb, 3, 19) == true && firstNumbZero(input) == true)
+                            String baseNumb = Console.ReadLine();
+                            if (IsNumb(baseNumb) == true && ValidLength(baseNumb, 3, 19) == true && firstNumbZero(input) == true)
                             {
                                 CreateManyRefNumb(baseNumb, count);
                             }
                             else
                             {
-                                Console.WriteLine("Something wrong with your baseNumb?");
+                                Console.WriteLine("Invalid basenumber.");
                             }
-                            Console.WriteLine("Press any key to continue!");
-                            Console.ReadKey();
+                            Console.WriteLine("\nPress 'Enter' to continue.");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         catch
                         {
-                            Console.WriteLine($"wrong input, click anything to continue!");
-                            Console.ReadLine();
+                            Console.WriteLine("Wrong input, press 'Enter' to continue!");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         break;
                     case '4':
                         try
                         {
                             Console.WriteLine();
-                            ReadFile(@"Referencenumber.txt");
-                            Console.WriteLine("Press anything to continue!");
-                            Console.ReadLine();
+                            ReadFile(@"RefNumberBank.txt");
+                            Console.WriteLine("\nPress 'Enter' to continue.");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         catch
                         {
-                            Console.WriteLine($"I think folder is empty or monkeys have destroyed your ref numbs, click anything to continue!");
-                            Console.ReadLine();
+                            Console.WriteLine("Folder is empty, press 'Enter' to continue!");
+                            while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         }
                         break;
-                    case '0':
+                    case 'X':
                         break;
 
                     default:
-                        Console.WriteLine("\nCheck your input and press enter!.");
-                        Console.ReadLine();
+                        Console.WriteLine("\nPress 'Enter' to continue.");
+                        while (Console.ReadKey().Key != ConsoleKey.Enter) { }
                         break;
                 }
-            } while (userChoise != '0');
+            } while (userChoise != 'X');
+        }
 
-        } // End main program
+        static char UserInterface()
+        {
+            Console.WriteLine("---> Reference number interface <---" +
+                                "\n\n[1] Check reference number." +
+                                "\n[2] Create new reference number." +
+                                "\n[3] Create many ref numb." +
+                                "\n[4] Read saved ref numbers." +
+                                "\n[X] Close program." +
+                                "\nChoose what to do: ");
+            return char.ToUpper(Console.ReadKey().KeyChar);
+        }
 
-        //This function is used in function which adds spaces. Its easier to add spaces to reversed string
-        //and then reverse it back. Simple.
-        public static string ReverseString(string inputValue)
+        public static String ReverseString(String inputValue)
         {
             char[] arr = inputValue.ToCharArray();
             Array.Reverse(arr);
-            return new string(arr);
+            return new String(arr);
         }
-        //This function adds space from last to first between every five digits
-        static string AddSpaces(string inputValue)
+
+        static String AddSpaces(String inputValue)
         {
             String input = ReverseString(inputValue);
 
@@ -130,11 +137,10 @@ namespace Harjoitustyö
                 input = input.Insert(i, " ");
                 i++;
             }
-
             return ReverseString(input);
         }
-        //This function checks first number and if its zero, function returns false. Easy check.
-        static bool firstNumbZero(string inputValue)
+
+        static bool firstNumbZero(String inputValue)
         {
             if (inputValue[0].ToString() != "0")
             {
@@ -145,19 +151,19 @@ namespace Harjoitustyö
                 return false;
             }
         }
-        //In this function we determine our input number and make sure there is no extradots or spaces
-        //We also use min- and maxValue to tell right length
-        static string InputValue(string inputValue, int minValue, int maxValue)
+
+        static String InputValue(String inputValue, int minValue, int maxValue)
         {
             Console.WriteLine($"\nInput may only be numbers and it must be between numbers {minValue} to {maxValue}");
             Console.WriteLine("Input: ");
-            string input = Console.ReadLine();
+            String input = Console.ReadLine();
             input = input.Replace(" ", "");
+            input = input.Replace(",", "");
             input = input.Replace(".", "");
             return input;
         }
-        //In last function we told right length, here we check it.
-        static bool validLength(string input, int minValue, int maxValue)
+
+        static bool ValidLength(String input, int minValue, int maxValue)
         {
             if (input.Length < minValue || input.Length > maxValue)
             {
@@ -168,8 +174,8 @@ namespace Harjoitustyö
                 return true;
             }
         }
-        //Here we check if input is number.
-        static bool isNumb(string inputValue)
+
+        static bool IsNumb(String inputValue)
         {
             int n = 0;
             for (int i = 0; i < inputValue.Length; i++)
@@ -183,44 +189,36 @@ namespace Harjoitustyö
             else
                 return false;
         }
-        //At first this was created for to create many, but now ill use it also to create one by passing
-        //parameter countValue
-        //So this functions makes countValue times unique reference numbers.
-        static void CreateManyRefNumb(string baseNumbValue, int countValue)
+
+        static void CreateManyRefNumb(String baseNumbValue, int countValue)
         {
             int i = 0;
-            string path = @"Referencenumber.txt"; //This is the name of file where we save reference numbers
-            string baseNumb = baseNumbValue;
-
+            String path = @"RefNumberBank.txt";
+            String baseNumb = baseNumbValue;
 
             for (int i2 = 0; i2 < countValue; i2++)
             {
-
-
                 if ((CheckReferenceNumb(baseNumb + i) == true))
                 {
                     Console.WriteLine($"{baseNumb}{i} is a new reference number");
                     WriteToFile(path, baseNumb + i);
                     i++;
-
                 }
                 else
                 {
                     i++;
                     i2--;
                 }
-
             }
         }
-        //I deleted many "original" functions from early build but this i left here to let teacher see some
-        //mid progress thinking
-        static void CreateRefNumb(string input)
+
+        static void CreateRefNumb(String input)
         {
             int i = 0;
-            if (CheckReferenceNumb(input) == true && isNumb(input) == true && validLength(input, 4, 20) == true)
+            if (CheckReferenceNumb(input) == true && IsNumb(input) == true && ValidLength(input, 4, 20) == true)
             {
                 Console.WriteLine($"New reference number is: {input}");
-                WriteToFile(@"Referencenumber.txt", input + i);
+                WriteToFile(@"RefNumberBank.txt", input + i);
 
             }
             else if (CheckReferenceNumb(input) == false)
@@ -234,42 +232,23 @@ namespace Harjoitustyö
                     {
                         input += i;
                         Console.WriteLine($"New reference number is: {input}");
-                        WriteToFile(@"Referencenumber.txt", input);
+                        WriteToFile(@"RefNumberBank.txt", input);
                     }
                 }
-
         }
-        //As name sais
-        static char UserInterface()
+        
+        static bool CheckReferenceNumb(String inputValue)
         {
-            Console.WriteLine("-----\n\nThis program Checks reference number and creates them as many as you want and saves" +
-                " them in 'Referencenumber.txt' file.\n\n-----\n ");
-            Console.WriteLine("---Reference number interface---.");
-            Console.WriteLine("[1] Check reference number.");
-            Console.WriteLine("[2] Create new reference number.");
-            Console.WriteLine("[3] Create many ref numb.");
-            Console.WriteLine("[4] Read saved ref numbers.");
-            Console.WriteLine("[0] Close program.");
-            Console.WriteLine("Choose what to do: ");
-            return char.ToUpper(Console.ReadKey().KeyChar);
-        }
-        //Check ref numb by "731"(dont know name of that) rule.
-        static bool CheckReferenceNumb(string inputValue)
-
-        {
-
             int summary = 0;
-            char lastNumb;                //userinput is valid referencenumber
+            char lastNumb;               
             int numbLength = 0;
             numbLength = inputValue.Length;
             lastNumb = inputValue[numbLength - 1];
             inputValue = inputValue.Remove(numbLength - 1, 1);
 
-
             int n = 3;
-            for (int i = inputValue.Length - 1; i >= 0; i--)    //This loop sums userinput numbers
-            {                                                   //from last to first by 731 rule without 
-                                                                //original userinput last number
+            for (int i = inputValue.Length - 1; i >= 0; i--)   
+            {                                          
                 if (n == 3)
                 {
                     summary = summary + int.Parse(inputValue[i].ToString()) * 7;
@@ -286,7 +265,6 @@ namespace Harjoitustyö
                     n = 3;
                 }
             }
-            // Console.WriteLine(summary); this line was to check if summary is right
             int numbValidator = summary + int.Parse(lastNumb.ToString());
             if (numbValidator % 10 == 0)
             {
@@ -297,24 +275,20 @@ namespace Harjoitustyö
                 return false;
             }
         }
-        //Saves VALID created ref numbs
-        static void WriteToFile(string path, string inputValue)
+
+        static void WriteToFile(String path, String inputValue)
         {
             using StreamWriter sw = new StreamWriter(path, true);
             sw.WriteLine(inputValue);
         }
-        //Easy bonus, was not in task list but was easy to add so i did.
-        //As name sais, reads file.
-        //Writes to console every single saved reference number 
-        static void ReadFile(string path)
+
+        static void ReadFile(String path)
         {
-            using (StreamReader sr = File.OpenText(path))
+            using StreamReader sr = File.OpenText(path);
+            String s;
+            while ((s = sr.ReadLine()) != null)
             {
-                string s;
-                while ((s = sr.ReadLine()) != null)
-                {
-                    Console.WriteLine(s);
-                }
+                Console.WriteLine(s);
             }
         }
     }
